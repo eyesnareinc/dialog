@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
-#ARG NODE_VERSION=18
+ARG NODE_VERSION=18
 FROM node:20.12.2
-FROM node:${NODE_VERSION} AS build
+#FROM node:${NODE_VERSION} AS build
 workdir /app
 run apt-get update > /dev/null && apt-get -y install python3-pip > /dev/null
 run mkdir certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 36500 -nodes -keyout certs/privkey.pem -out certs/fullchain.pem -subj '/CN=dialog'
