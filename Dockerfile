@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
-ARG NODE_VERSION=18
-
+#ARG NODE_VERSION=18
+FROM node:20.12.2
 FROM node:${NODE_VERSION} AS build
 workdir /app
 run apt-get update > /dev/null && apt-get -y install python3-pip > /dev/null
