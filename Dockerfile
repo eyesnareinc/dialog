@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
-#ARG NODE_VERSION=18
-ARG NODE_VERSION=20
+ARG NODE_VERSION=18
+#ARG NODE_VERSION=20
 
 FROM node:${NODE_VERSION} AS build
 workdir /app
@@ -14,6 +14,7 @@ from node:lts-slim
 workdir /app
 copy --from=build /app /app
 #run apt-get update > /dev/null && apt-get install -y jq curl dnsutils netcat > /dev/null
-run apt-get update > /dev/null && apt-get install -y jq curl dnsutils netcat-traditional > /dev/null
+#run apt-get update > /dev/null && apt-get install -y jq curl dnsutils netcat-traditional > /dev/null
+run apt-get update > /dev/null && apt-get install -y jq curl dnsutils > /dev/null
 copy scripts/docker/run.sh /run.sh
 cmd bash /run.sh
