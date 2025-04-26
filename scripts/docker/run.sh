@@ -6,7 +6,7 @@ healthcheck(){
 }
 
 
-healthcheck &
+# healthcheck &
 echo -e $(echo -e ${perms_key//\n/n}) > /app/certs/perms.pub.pem        
 head -3 /app/certs/perms.pub.pem
 export MEDIASOUP_ANNOUNCED_IP=$(curl ${PUB_IP_CURL})
